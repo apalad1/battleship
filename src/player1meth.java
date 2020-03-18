@@ -4,6 +4,8 @@ public class player1meth extends seaboard {
 
     String playeronename;
     private static String[][] player1placement = new String[6][6];
+    boolean placeagain = true;
+
     //player1attacking board
     // ------------------------------------------------------------------
     //method to be asked to place ships?
@@ -22,7 +24,8 @@ public class player1meth extends seaboard {
 
     }
 
-    public void player1set3(){
+    public boolean player1set3(){
+
 
         for(int i = 0; i<player1placement.length; i++){             //fill the board with "filler" if theres no "p1" on it
             for(int j=0; j<player1placement.length;j++){
@@ -42,37 +45,44 @@ public class player1meth extends seaboard {
             }
         }
 
-        System.out.println("Player -" + playeronename + "- enter the coordinates for ship#1 which takes 3 tiles, THIS COORDINATE WILL BE THE CENTER OF THE SHIP");
-        System.out.println("-" + playeronename + "- enter the x coordinate");
-        Scanner playeronescannerx = new Scanner(System.in);
-        int playeronesXinput = playeronescannerx.nextInt();
+        while(placeagain = true){
+            System.out.println("Player -" + playeronename + "- enter the coordinates for ship#1 which takes 3 tiles, THIS COORDINATE WILL BE THE CENTER OF THE SHIP");
+            System.out.println("-" + playeronename + "- enter the x coordinate");
+            Scanner playeronescannerx = new Scanner(System.in);
+            int playeronesXinput = playeronescannerx.nextInt();
 
-        System.out.println("-" + playeronename + "- enter the y coordinate");
-        Scanner playeronescannery = new Scanner(System.in);
-        int playeronesYinput = playeronescannery.nextInt();
+            System.out.println("-" + playeronename + "- enter the y coordinate");
+            Scanner playeronescannery = new Scanner(System.in);
+            int playeronesYinput = playeronescannery.nextInt();
 
-        System.out.println("-" + playeronename + "- horizontal - press 1, or vertical | press 2");
-        Scanner orientation = new Scanner(System.in);
-        int playeronevh = orientation.nextInt();
+            System.out.println("-" + playeronename + "- horizontal - press 1, or vertical | press 2");
+            Scanner orientation = new Scanner(System.in);
+            int playeronevh = orientation.nextInt();
 
-        //set the centershiptile, if the vh is out of bounds, wipe this tile later on with the vh code
+            //set the centershiptile, if the vh is out of bounds, wipe this tile later on with the vh code
 
-        if(player1placement[playeronesXinput][playeronesYinput] == "~"){    //if the chosen center coord is 'sea', let this happen
+            if(player1placement[playeronesXinput][playeronesYinput] == "~"){    //if the chosen center coord is 'sea', let this happen
 
-            if(playeronevh == 1){   //check if sideways has room, the extends need to be able to replace the 'sea' tiles
-                if((player1placement[playeronesXinput-1][playeronesYinput] == "~") && (player1placement[playeronesXinput+1][playeronesYinput]) == "~"){
-                    player1placement[playeronesXinput-1][playeronesYinput] = "x";      //if its within the boundary of the currently 6x6 map replace the board tile with their declared tile
-                    player1placement[playeronesXinput+1][playeronesYinput] = "x";
+                if(playeronevh == 1){   //check if sideways has room, the extends need to be able to replace the 'sea' tiles
+                    if((player1placement[playeronesXinput-1][playeronesYinput] == "~") && (player1placement[playeronesXinput+1][playeronesYinput]) == "~"){
+                        player1placement[playeronesXinput-1][playeronesYinput] = "x";      //if its within the boundary of the currently 6x6 map replace the board tile with their declared tile
+                        player1placement[playeronesXinput+1][playeronesYinput] = "x";
 
-                    player1placement[playeronesXinput][playeronesYinput] = "x";      //let the center replace happen after checking the sides too
+                        player1placement[playeronesXinput][playeronesYinput] = "x";      //let the center replace happen after checking the sides too
+                        placeagain = false;
+                        return placeagain;
+                    }
                 }
-            }
-            if(playeronevh == 2){ //check if updown has room for the extends up down
-                if((player1placement[playeronesXinput][playeronesYinput-1] == "~") && (player1placement[playeronesXinput][playeronesYinput+1] == "~")){
-                    player1placement[playeronesXinput][playeronesYinput-1] = "x";
-                    player1placement[playeronesXinput][playeronesYinput+1] = "x";
+                if(playeronevh == 2){ //check if updown has room for the extends up down
+                    if((player1placement[playeronesXinput][playeronesYinput-1] == "~") && (player1placement[playeronesXinput][playeronesYinput+1] == "~")){
+                        player1placement[playeronesXinput][playeronesYinput-1] = "x";
+                        player1placement[playeronesXinput][playeronesYinput+1] = "x";
 
-                    player1placement[playeronesXinput][playeronesYinput] = "x";
+                        player1placement[playeronesXinput][playeronesYinput] = "x";
+                        placeagain = false;
+                        return placeagain;
+                    }
+
                 }
 
             }
@@ -81,7 +91,7 @@ public class player1meth extends seaboard {
 
 
 
-
+        return placeagain;
         //return player1placement;
     }
 

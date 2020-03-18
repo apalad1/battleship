@@ -20,8 +20,8 @@ public class Battleshp {
         player1.player1set3();
         player1.printplayer1placement();
 
-        player1.player1set3();
-        player1.printplayer1placement();
+        //player1.player1set3();
+        //player1.printplayer1placement();
 
 
 
