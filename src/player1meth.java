@@ -19,7 +19,7 @@ public class player1meth extends seaboard {
 
         for(int i = 0; i<player1placement.length; i++){             //fill the board with "filler" if theres no "p1" on it
             for(int j=0; j<player1placement.length;j++){
-                if(player1placement[i][j] != "x"){
+                if((player1placement[i][j] != "F") && (player1placement[i][j] != "T")){
                     player1placement[i][j] = "~";
                 }
                 if(i==0){
@@ -55,12 +55,12 @@ public class player1meth extends seaboard {
                 if(playeronevh == 1){   //check if sideways has room, the extends need to be able to replace the 'sea' tiles in this instance 5 SHIPTILE NEEDS TO CHECK 2 EXTENDS EACH SIDE
                     if((player1placement[playeronesXinput-1][playeronesYinput] == "~") && (player1placement[playeronesXinput+1][playeronesYinput] == "~")
                         && (player1placement[playeronesXinput-2][playeronesYinput] == "~") && (player1placement[playeronesXinput+2][playeronesYinput] == "~")){
-                        player1placement[playeronesXinput-1][playeronesYinput] = "x";      //if its within the boundary of the currently 6x6 map replace the board tile with their declared tile
-                        player1placement[playeronesXinput+1][playeronesYinput] = "x";
-                        player1placement[playeronesXinput-2][playeronesYinput] = "x";
-                        player1placement[playeronesXinput+2][playeronesYinput] = "x";
+                        player1placement[playeronesXinput-1][playeronesYinput] = "F";      //if its within the boundary of the currently 6x6 map replace the board tile with their declared tile
+                        player1placement[playeronesXinput+1][playeronesYinput] = "F";
+                        player1placement[playeronesXinput-2][playeronesYinput] = "F";
+                        player1placement[playeronesXinput+2][playeronesYinput] = "F";
 
-                        player1placement[playeronesXinput][playeronesYinput] = "x";      //let the center replace happen after checking the sides too
+                        player1placement[playeronesXinput][playeronesYinput] = "F";      //let the center replace happen after checking the sides too
                         placeagain = false;
                         return placeagain;
                     }
@@ -68,12 +68,12 @@ public class player1meth extends seaboard {
                 if(playeronevh == 2){ //check if updown has room for the extends up down
                     if((player1placement[playeronesXinput][playeronesYinput-1] == "~") && (player1placement[playeronesXinput][playeronesYinput+1] == "~")
                         && (player1placement[playeronesXinput][playeronesYinput-2]=="~") && (player1placement[playeronesXinput][playeronesYinput+2]=="~")){
-                        player1placement[playeronesXinput][playeronesYinput-1] = "x";
-                        player1placement[playeronesXinput][playeronesYinput+1] = "x";
-                        player1placement[playeronesXinput][playeronesYinput-2] = "x";
-                        player1placement[playeronesXinput][playeronesYinput+2] = "x";
+                        player1placement[playeronesXinput][playeronesYinput-1] = "F";
+                        player1placement[playeronesXinput][playeronesYinput+1] = "F";
+                        player1placement[playeronesXinput][playeronesYinput-2] = "F";
+                        player1placement[playeronesXinput][playeronesYinput+2] = "F";
 
-                        player1placement[playeronesXinput][playeronesYinput] = "x";
+                        player1placement[playeronesXinput][playeronesYinput] = "F";
                         placeagain = false;
                         return placeagain;
                     }
@@ -92,7 +92,7 @@ public class player1meth extends seaboard {
 
         for(int i = 0; i<player1placement.length; i++){             //fill the board with "filler" if theres no "p1" on it
             for(int j=0; j<player1placement.length;j++){
-                if(player1placement[i][j] != "x"){
+                if((player1placement[i][j] != "F") && (player1placement[i][j] != "T")){
                     player1placement[i][j] = "~";
                 }
                 if(i==0){
@@ -128,20 +128,20 @@ public class player1meth extends seaboard {
 
                 if(playeronevh == 1){   //check if sideways has room, the extends need to be able to replace the 'sea' tiles
                     if((player1placement[playeronesXinput-1][playeronesYinput] == "~") && (player1placement[playeronesXinput+1][playeronesYinput]== "~") ){
-                        player1placement[playeronesXinput-1][playeronesYinput] = "x";      //if its within the boundary of the currently 6x6 map replace the board tile with their declared tile
-                        player1placement[playeronesXinput+1][playeronesYinput] = "x";
+                        player1placement[playeronesXinput-1][playeronesYinput] = "T";      //if its within the boundary of the currently 6x6 map replace the board tile with their declared tile
+                        player1placement[playeronesXinput+1][playeronesYinput] = "T";
 
-                        player1placement[playeronesXinput][playeronesYinput] = "x";      //let the center replace happen after checking the sides too
+                        player1placement[playeronesXinput][playeronesYinput] = "T";      //let the center replace happen after checking the sides too
                         placeagain = false;
                         return placeagain;
                     }
                 }
                 if(playeronevh == 2){ //check if updown has room for the extends up down
                     if((player1placement[playeronesXinput][playeronesYinput-1] == "~") && (player1placement[playeronesXinput][playeronesYinput+1] == "~")){
-                        player1placement[playeronesXinput][playeronesYinput-1] = "x";
-                        player1placement[playeronesXinput][playeronesYinput+1] = "x";
+                        player1placement[playeronesXinput][playeronesYinput-1] = "T";
+                        player1placement[playeronesXinput][playeronesYinput+1] = "T";
 
-                        player1placement[playeronesXinput][playeronesYinput] = "x";
+                        player1placement[playeronesXinput][playeronesYinput] = "T";
                         placeagain = false;
                         return placeagain;
                     }
