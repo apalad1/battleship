@@ -153,9 +153,7 @@ public class player1meth extends seaboard {
         }
 
 
-
         return placeagain;
-        //return player1placement;
     }
 
     void printplayer1placement(){
