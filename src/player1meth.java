@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class player1meth extends seaboard {
 
     String playeronename;
+    private static int min = 0;
+    private static int max = 6;
     private static String[][] player1placement = new String[6][6];
     boolean placeagain = true;
 
@@ -44,6 +46,12 @@ public class player1meth extends seaboard {
             System.out.println("-" + playeronename + "- enter the y coordinate");
             Scanner playeronescannery = new Scanner(System.in);
             int playeronesYinput = playeronescannery.nextInt();
+
+            //sends the players x and y center to 0,0 to force them to reinput to avoid out of bounds centers
+            if((playeronesXinput > max) || (playeronesYinput>max) || (playeronesXinput < min) || (playeronesYinput < min)){
+                playeronesXinput = 0;
+                playeronesYinput = 0;
+            }
 
             System.out.println("-" + playeronename + "- horizontal - press 1, or vertical | press 2");
             Scanner orientation = new Scanner(System.in);
@@ -109,6 +117,8 @@ public class player1meth extends seaboard {
         }
 
         while(placeagain = true){
+
+
             System.out.println("Player -" + playeronename + "- enter the coordinates for ship#1 which takes 3 tiles, THIS COORDINATE WILL BE THE CENTER OF THE SHIP");
             System.out.println("-" + playeronename + "- enter the x coordinate");
             Scanner playeronescannerx = new Scanner(System.in);
@@ -117,6 +127,11 @@ public class player1meth extends seaboard {
             System.out.println("-" + playeronename + "- enter the y coordinate");
             Scanner playeronescannery = new Scanner(System.in);
             int playeronesYinput = playeronescannery.nextInt();
+
+            if((playeronesXinput > max) || (playeronesYinput>max) || (playeronesXinput < min) || (playeronesYinput < min)){
+                playeronesXinput = 0;
+                playeronesYinput = 0;
+            }
 
             System.out.println("-" + playeronename + "- horizontal - press 1, or vertical | press 2");
             Scanner orientation = new Scanner(System.in);
@@ -157,12 +172,14 @@ public class player1meth extends seaboard {
     }
 
     void printplayer1placement(){
-        System.out.println(player1placement[0][0] + "  " + player1placement[1][0] + "  " + player1placement[2][0] + "  " + player1placement[3][0] + "  " + player1placement[4][0] + "  " + player1placement[5][0]);
-        System.out.println(player1placement[0][1] + "  " + player1placement[1][1] + "  " + player1placement[2][1] + "  " + player1placement[3][1] + "  " + player1placement[4][1] + "  " + player1placement[5][1]);
-        System.out.println(player1placement[0][2] + "  " + player1placement[1][2] + "  " + player1placement[2][2] + "  " + player1placement[3][2] + "  " + player1placement[4][2] + "  " + player1placement[5][2]);
-        System.out.println(player1placement[0][3] + "  " + player1placement[1][3] + "  " + player1placement[2][3] + "  " + player1placement[3][3] + "  " + player1placement[4][3] + "  " + player1placement[5][3]);
-        System.out.println(player1placement[0][4] + "  " + player1placement[1][4] + "  " + player1placement[2][4] + "  " + player1placement[3][4] + "  " + player1placement[4][4] + "  " + player1placement[5][4]);
-        System.out.println(player1placement[0][5] + "  " + player1placement[1][5] + "  " + player1placement[2][5] + "  " + player1placement[3][5] + "  " + player1placement[4][5] + "  " + player1placement[5][5]);
+        for(int i=0;i<max;i++){
+            for(int j=0;j<max;j++){
+                System.out.print(player1placement[j][i]);
+
+                System.out.print("  ");
+            }
+            System.out.println();
+        }
     }
 
 }

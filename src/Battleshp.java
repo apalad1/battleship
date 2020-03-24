@@ -19,12 +19,14 @@ public class Battleshp {
         player1meth player1 = new player1meth();
         player1.player1name();
                                             //have the player place the biggest ship first so they get
-        //player1.player1set5();              //a good idea of the space they have left to work around
-        //player1.printplayer1placement();      //comment out 5tile just for faster tests?
+        player1.player1set5();              //a good idea of the space they have left to work around
+        player1.printplayer1placement();      //comment out 5tile just for faster tests?
         player1.player1set3();
         player1.printplayer1placement();
 
-        SEA.printarray();                   //remind p2 of the board and also try to move up/hide player 1s setup in console
+        //SEA.printarray();                   //remind p2 of the board and also try to move up/hide player 1s setup in console
+        System.out.println("PLAYER 2S TURN");
+
 
         //player 2 setup
         player2meth player2 = new player2meth();
@@ -32,11 +34,12 @@ public class Battleshp {
 
         player2.player2set5();
         player2.printplayer2placement();
-
+        player2.player2set3();
+        player2.printplayer2placement();
 
         //testing
-        //System.out.println("back to p1s board");
-        //player1.printplayer1placement();
+        System.out.println("back to p1s board");
+        player1.printplayer1placement();
 
 
 

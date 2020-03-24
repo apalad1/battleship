@@ -1,9 +1,11 @@
 public class seaboard extends Battleshp {
-    private static String[][] Nboard = new String[6][6];
+    private static int min = 0;
+    private static int max = 6;
+    private static String[][] Nboard = new String[max][max];
 
     String[][] initialnuetralboard(){
-        for(int x=0; x<6;x++){
-            for(int y=0;y<6;y++){
+        for(int x=0; x<max;x++){
+            for(int y=0;y<max;y++){
                 if((x!=0) || (y!=0)){
                     Nboard[x][y] = "~";
                 }
@@ -21,16 +23,42 @@ public class seaboard extends Battleshp {
         return Nboard;
     }   //setup the initial board
 
-    public void printarray(){
-        System.out.println(Nboard[0][0] + "  " + Nboard[1][0] + "  " + Nboard[2][0] + "  " + Nboard[3][0] + "  " + Nboard[4][0] + "  " + Nboard[5][0]);
-        System.out.println(Nboard[0][1] + "  " + Nboard[1][1] + "  " + Nboard[2][1] + "  " + Nboard[3][1] + "  " + Nboard[4][1] + "  " + Nboard[5][1]);
-        System.out.println(Nboard[0][2] + "  " + Nboard[1][2] + "  " + Nboard[2][2] + "  " + Nboard[3][2] + "  " + Nboard[4][2] + "  " + Nboard[5][2]);
-        System.out.println(Nboard[0][3] + "  " + Nboard[1][3] + "  " + Nboard[2][3] + "  " + Nboard[3][3] + "  " + Nboard[4][3] + "  " + Nboard[5][3]);
-        System.out.println(Nboard[0][4] + "  " + Nboard[1][4] + "  " + Nboard[2][4] + "  " + Nboard[3][4] + "  " + Nboard[4][4] + "  " + Nboard[5][4]);
-        System.out.println(Nboard[0][5] + "  " + Nboard[1][5] + "  " + Nboard[2][5] + "  " + Nboard[3][5] + "  " + Nboard[4][5] + "  " + Nboard[5][5]);
+    void printarray(){
+        for(int i=0;i<max;i++){
+            for(int j=0;j<max;j++){
+                System.out.print(Nboard[j][i]);
+
+                System.out.print("  ");
+            }
+            System.out.println();
+        }
     }
 
+
     public void combat(){
+
+        //have the attacks alter the player 1 and player 2 placementboards?         "X" for hits, "M" for misses
+        //have a player1attackedboard[][] = same look as the initial board
+
+
+        //todo player1attackedboard will have "M"/"X"/"~" to show misses, hits, and unknowns, this is the display, not the player2placement
+        //player 1 enters x, y coordinates, check the coordinates on player2placement
+            //if player1 missed, replace the player1attackedboard[x][y] with = "M"
+
+            //if(player2placement[x][y] == "T")
+                //change the player2placement[x][y], loop through the board and remove all "T", change to "X"
+                //loop through player2placement[x][y] every tile thats "X" change player1attackedboard with "X" also
+                //int shiphit++
+                    //if(shiphit == 2) ->gamewon
+                //display/print player1attackedboard
+
+            //if(player2placement[x][y] == "F")
+                //change the player2placement[x][y], loop and remove all "F", change to "X"
+                //loopthrough player2placement[x][y] everytile thats "X" change player1attackedboard with "X" also
+                //int shiphit++
+                    //if(shiphit == 2) ->gamewon
+                //display/print player1attackedboard
+
 
     }
 
