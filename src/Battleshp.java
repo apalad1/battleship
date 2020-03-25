@@ -1,12 +1,6 @@
 import java.util.Scanner;
 
 public class Battleshp {
-    // - use inheritance
-    // - ship is abstract base class that the other ships inherit from
-    // - encapsulation where every field is private
-    // - field only accessible by getter/setter
-    // - everything should be an object like the board
-    // turn the board to an object, loop over it and then override on player1meth to represent the boats?
 
     //on player1meth "F" will be the five tile ship, "T" will be the three tile ship
     public static void main(String []args){

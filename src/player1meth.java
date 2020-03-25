@@ -5,7 +5,7 @@ public class player1meth extends seaboard {
     String playeronename;
     private static int min = 0;
     private static int max = 6;
-    private static String[][] player1placement = new String[6][6];
+    private static String[][] player1placement = new String[max][max];
     boolean placeagain = true;
 
 
@@ -181,5 +181,8 @@ public class player1meth extends seaboard {
             System.out.println();
         }
     }
+
+    //have the player2attacking player 1 here with the player2 board in here also for direct comparison
+
 
 }

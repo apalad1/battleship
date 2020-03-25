@@ -8,6 +8,7 @@ public class player2meth extends seaboard {
     private static String[][] player2placement = new String[max][max];
     boolean placeagain = true;
 
+    private static String[][] player1attackboard = new String[max][max];
 
     public void player2name(){
         System.out.println("Enter Player 2 name: ");
@@ -177,6 +178,38 @@ public class player2meth extends seaboard {
             }
             System.out.println();
         }
+    }
+
+    //have the player2attacking player 1 here with the player2 board in here also for direct comparison
+    String[][] player1attack(){
+        System.out.println("Player 1 enter the x coordinate");
+        Scanner p1atk = new Scanner(System.in);
+        int xp1atk = p1atk.nextInt();
+
+        System.out.println("Player 1 enter the y coordinate");
+        Scanner p2atk = new Scanner(System.in);
+        int yp1atk = p2atk.nextInt();
+
+        //loop through the player2placement board see if player2placement[xp1atk][yp1atk] == "T" || player2placement[xp1atk][yp1atk] == "F"
+        if(player2placement[xp1atk][yp1atk] == "F" || player2placement[xp1atk][yp1atk] == "T"){
+            if(player2placement[xp1atk][yp1atk] == "F"){
+                for(int i=0;i<max;i++){
+                    for(int j=0;j<max;j++){
+                        if(player2placement[i][j] == "F"){                  //run through the loop, check the player2placeboard for f tiles
+                            player1attackboard[i][j] = "X";                 //change the player 1 attack board where you hit to x
+                                                                            //win condition is to run through the player1attackboard if xcount = 8 tiles, you win (5 from F, 3 from T)
+                        }
+                    }
+                }
+            }
+            if(player2placement[xp1atk][yp1atk] == "T"){
+
+            }
+        } else{
+            player1attackboard[xp1atk][yp1atk] = "M";
+        }
+        return player1attackboard;
+
     }
 }
 
