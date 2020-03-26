@@ -190,7 +190,7 @@ public class player2meth extends seaboard {
         Scanner p2atk = new Scanner(System.in);
         int yp1atk = p2atk.nextInt();
 
-        //loop through the player2placement board see if player2placement[xp1atk][yp1atk] == "T" || player2placement[xp1atk][yp1atk] == "F"
+        //check the player2placement board coords see if player2placement[xp1atk][yp1atk] == "T" || player2placement[xp1atk][yp1atk] == "F"
         if(player2placement[xp1atk][yp1atk] == "F" || player2placement[xp1atk][yp1atk] == "T"){
             if(player2placement[xp1atk][yp1atk] == "F"){
                 for(int i=0;i<max;i++){
@@ -203,7 +203,13 @@ public class player2meth extends seaboard {
                 }
             }
             if(player2placement[xp1atk][yp1atk] == "T"){
-
+                for(int a=0;a<max;a++){
+                    for(int b=0;b<max;b++){
+                        if(player2placement[a][b] == "T"){
+                            player1attackboard[a][b] = "X";
+                        }
+                    }
+                }
             }
         } else{
             player1attackboard[xp1atk][yp1atk] = "M";
@@ -211,6 +217,39 @@ public class player2meth extends seaboard {
         return player1attackboard;
 
     }
+    //populate player1attackboard, if its not "M" "X" fill it with "~"
+    String[][] populatep1attack(){
+        for(int a=0;a<max;a++){
+            for(int b=0;b<max;b++){
+                if(((a!=0) || (b!=0)) && (player1attackboard[a][b] != "X") && (player1attackboard[a][b] != "M")){
+                    player1attackboard[a][b] = "~";
+                }
+                if(a==0){
+                    player1attackboard[0][b] = Integer.toString(b);
+                }
+                if(b==0){
+                    player1attackboard[a][0] = Integer.toString(a);
+                }
+                if(a==0 && b==0){
+                    player1attackboard[a][b] = " ";
+                }
+            }
+        }
+        return player1attackboard;
+    }
+    //display to be called after player 1s attacks to see their current status of attacks
+    void printp1attackboard(){
+        System.out.println("Player 1s, Attack History");
+      for(int a=0;a<max;a++){           //a is the y coord here
+          for(int b=0;b<max;b++){       //b is the x coord here
+              System.out.print(" "+ player1attackboard[b][a] +" ");
+              if(b==5){
+                  System.out.println();
+              }
+          }
+      }
+    }
+    //method to check the player1attackboard if it has 8 X tiles meaning it hit all the ships
 }
 
 
