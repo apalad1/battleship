@@ -10,6 +10,8 @@ public class player2meth extends seaboard {
 
     private static String[][] player1attackboard = new String[max][max];
 
+    private int Xcount = 0;
+
     public void player2name(){
         System.out.println("Enter Player 2 name: ");
         Scanner scanthing2 = new Scanner(System.in);
@@ -250,6 +252,26 @@ public class player2meth extends seaboard {
       }
     }
     //method to check the player1attackboard if it has 8 X tiles meaning it hit all the ships
+    public int countXs(){
+        Xcount = 0;                 //set Xcount back to 0, max should be 8 for a 5tile ship + 3tile ship
+        for(int i=0;i<max;i++){
+            for(int j=0;j<max;j++){
+                if(player1attackboard[i][j] == "X"){
+                    Xcount++;
+                }
+            }
+        }
+        return Xcount;
+    }
+
+    public int getXcount(){
+        System.out.println("returned xcount is: " + Xcount);
+        return Xcount;
+    }
+    public void setXcount(int newval){
+        this.Xcount = newval;
+    }
+
 }
 
 

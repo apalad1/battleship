@@ -11,7 +11,7 @@ public class Battleshp {
 
         //player 1 setup
         player1meth player1 = new player1meth();
-        player1.player1name();
+        //player1.player1name();
                                             //have the player place the biggest ship first so they get
         //player1.player1set5();              //a good idea of the space they have left to work around
         //player1.printplayer1placement();      //comment out 5tile just for faster tests?
@@ -24,24 +24,47 @@ public class Battleshp {
 
         //player 2 setup
         player2meth player2 = new player2meth();
-       player2.player2name();
+        //player2.player2name();
 
-        //player2.player2set5();
-        //player2.printplayer2placement();
-        //player2.player2set3();
-        //player2.printplayer2placement();
+        player2.player2set5();
+        player2.printplayer2placement();
+        player2.player2set3();
+        player2.printplayer2placement();
 
 
         //testing
         System.out.println("GAME START");
         //while game isnt over loop these
-        //player2.player1attack();
-        //player1.player2attack();
 
-        player2.populatep1attack();
-        player2.printp1attackboard();
+        int xcounteight = 0;
+        while(xcounteight != 8){
+            //PLAYER 1 SET, compare the player1attack board vs the player2placement board
+            player2.populatep1attack();
+            player2.player1attack();
+            player2.printp1attackboard();
+            player2.countXs();
+            player2.getXcount();
+            xcounteight = player2.getXcount();
+            if(xcounteight == 8){
+                System.out.println("player 1 won");
+            } else{
+                System.out.println("player 2s turn");
+            }
+        }
+            System.out.println("hit the end");
+
+
+
+
+
+
+
 
 
     }
+
+    //victory method?
+    //boolean victory = false;
+
 }
 
