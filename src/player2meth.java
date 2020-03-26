@@ -219,6 +219,8 @@ public class player2meth extends seaboard {
         return player1attackboard;
 
     }
+
+
     //populate player1attackboard, if its not "M" "X" fill it with "~"
     String[][] populatep1attack(){
         for(int a=0;a<max;a++){
@@ -239,6 +241,8 @@ public class player2meth extends seaboard {
         }
         return player1attackboard;
     }
+
+
     //display to be called after player 1s attacks to see their current status of attacks
     void printp1attackboard(){
         System.out.println("Player 1s, Attack History");
@@ -251,6 +255,8 @@ public class player2meth extends seaboard {
           }
       }
     }
+
+
     //method to check the player1attackboard if it has 8 X tiles meaning it hit all the ships
     public int countXs(){
         Xcount = 0;                 //set Xcount back to 0, max should be 8 for a 5tile ship + 3tile ship
